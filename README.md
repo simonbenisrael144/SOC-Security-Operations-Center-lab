@@ -38,10 +38,6 @@ graph TD
     FW --> Wazuh
     FW --> Win
     Win -- "Security Logs" --> Wazuh
-```mermaid
-graph TD
-    ... (your diagram code) ...
-    Win -- "Security Logs" --> Wazuh
 ```
 🛠️ 3. Skills & Tools Demonstrated
 SIEM/XDR Deployment: Installed and configured Wazuh to monitor endpoints.
