@@ -16,7 +16,27 @@ This lab simulates a real-world enterprise environment using a **Wazuh SIEM**, a
 ## 2. Network Architecture
 The lab is built within a virtualized network using **VirtualBox**. Traffic is segmented by pfSense to ensure the victim machine is isolated from the host while remaining reachable by the Wazuh manager.
 
-![Lab Architecture]([PASTE_MERMAID_OR_DIAGRAM_LINK_HERE])
+![Lab Architecture]
+graph TD
+    subgraph "External Access"
+        Host[Physical Host Machine]
+    end
+
+    subgraph "Virtual Lab (VirtualBox)"
+        WAN[NAT Network]
+        FW[pfSense Firewall]
+        
+        subgraph "Internal Network (10.0.0.0/24)"
+            Wazuh[Wazuh Manager: 10.0.0.101]
+            Win[Windows 11 Victim: 10.0.0.100]
+        end
+    end
+
+    Host --> WAN
+    WAN --> FW
+    FW --> Wazuh
+    FW --> Win
+    Win -- "Security Logs" --> Wazuh
 
 ## 3. Environment Setup & Troubleshooting
 ### Active Agent Monitoring
