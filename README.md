@@ -1,3 +1,17 @@
+Project Results: Wazuh in Action
+
+### Active Agent Monitoring
+Successfully established a secure connection between the Windows 11 endpoint and the Wazuh Manager.
+![Wazuh Active Agent](image_f76048.png)
+
+### Vulnerability Assessment
+Identified 138 high-priority risks, allowing for targeted patch management.
+![Vulnerability Report](image_f76b31.png)
+
+### Troubleshooting Evidence
+Documented the initial configuration error ('0.0.0.0' address) to show the technical resolution process.
+![Ossec Log Error](image_b42bf5.png)
+
 # SOC-Security-Operations-Center-lab
 A. Project Overview
 Describe the lab's purpose. Mention that it simulates a real-world enterprise environment using a SIEM (Wazuh), a firewall (pfSense), and a monitored endpoint (Windows 11).
