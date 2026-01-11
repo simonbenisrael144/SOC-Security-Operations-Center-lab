@@ -68,9 +68,11 @@ Privilege Escalation Recovery: Utilized the "Utilman" technique to recover admin
 
 System Hardening: Successfully restored original accessibility files and promoted the standard user to the local Administrators group for permanent, secure access.
 
-📝 Security Policy Documentation
-Because this lab utilizes Windows 11 Home, which lacks the graphical Group Policy Editor (gpedit.msc), I used the auditpol command-line utility to configure advanced security auditing.
+📝 Security Policy Configuration
+Because this lab environment uses Windows 11 Home, which does not include the graphical Group Policy Editor (gpedit.msc), I utilized the auditpol command-line utility to enable advanced security auditing.
 
-Evidence: You can find the full exported audit configuration here: SOC_Audit_Policy.csv.
+Command Executed: auditpol /set /subcategory:"Logon" /failure:enable
 
-Key Configuration: Specifically enabled Logon (Failure) auditing to ensure Event ID 4625 is generated for Wazuh to ingest during brute-force simulations.
+Purpose: This ensures that Event ID 4625 (Failed Login) is recorded in the Windows Security logs, allowing the Wazuh agent to detect and alert on brute-force attempts.
+
+Evidence: The full configuration has been exported for verification: SOC_Audit_Policy.csv 
